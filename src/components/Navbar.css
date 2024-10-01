@@ -2,6 +2,7 @@
 .navbar {
   background-color: #30aafb;
   padding: 10px;
+  margin: 0;
 }
 
 .nav-items {
@@ -28,13 +29,14 @@
 .nav-items li span:hover {
   background-color: #f1ee21;
   border-radius: 5px;
+  color: rgb(47, 47, 181);
 }
 
 /* Dropdown menu styles */
 .dropdown-content {
   display: none; /* Hidden by default */
   position: absolute;
-  background-color: #f9f9f9;
+  background-color:blue;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
@@ -42,6 +44,7 @@
   left: 0;
   padding: 10px;
   min-width: 160px;
+  margin-top: 20px;
 }
 
 /* Show the dropdown when the state is active */
@@ -55,7 +58,7 @@
 }
 
 .dropdown-content li a {
-  color: black;
+  color: white;
   padding: 10px 15px;
   text-decoration: none;
   display: block;
@@ -63,6 +66,6 @@
 }
 
 .dropdown-content li a:hover {
-  background-color: #f1f1f1;
+  background-color: #f9d73d;
   border-radius: 5px;
 }
