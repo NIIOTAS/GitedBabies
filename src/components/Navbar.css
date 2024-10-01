@@ -1,6 +1,6 @@
 /* Navbar Styles */
 .navbar {
-  background-color: #333;
+  background-color: #30aafb;
   padding: 10px;
 }
 
@@ -26,7 +26,7 @@
 
 .nav-items li a:hover,
 .nav-items li span:hover {
-  background-color: #555;
+  background-color: #f1ee21;
   border-radius: 5px;
 }
 
