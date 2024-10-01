@@ -1,0 +1,68 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.nav-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-items li {
+  position: relative;
+}
+
+.nav-items li a,
+.nav-items li span {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+.nav-items li a:hover,
+.nav-items li span:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Dropdown menu styles */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%; /* Ensure the dropdown appears below the parent */
+  left: 0;
+  padding: 10px;
+  min-width: 160px;
+}
+
+/* Show the dropdown when the state is active */
+.dropdown-content.show {
+  display: block;
+}
+
+/* Styling for dropdown links */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content li a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.dropdown-content li a:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
