@@ -1,0 +1,11 @@
+{
+  "name": "mainsite-backend",
+  "version": "1.0.0",
+  "description": "support-system-of-the-website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OKAI TETTEY ANTIE SAMUEL",
+  "license": "MIT"
+}
