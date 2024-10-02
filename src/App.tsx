@@ -16,6 +16,7 @@ import Course6 from './pages/programs/Course6';
 import Course7 from './pages/programs/Course7';
 import Course8 from './pages/programs/Course8';
 import AboutCeoMessage from './pages/about/AboutCeoMessage.tsx';
+import "./App.css";
 
 const App: React.FC = () => {
   return (

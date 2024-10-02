@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Navbar Styles */
 .navbar {
   background-color: #30aafb;
-  padding: 10px;
+  padding: 20px;
   margin: 0;
+  width: 100vw; /* Full width using viewport width */
+  display: flex;
+  justify-content: center; /* Centers the items */
+  font-family: "Montserrat", sans-serif;
 }
 
+/* Nav items styles */
 .nav-items {
   list-style: none;
   margin: 0;
@@ -13,10 +20,12 @@
   gap: 20px;
 }
 
+/* Individual nav items */
 .nav-items li {
   position: relative;
 }
 
+/* Link and span styles */
 .nav-items li a,
 .nav-items li span {
   color: white;
@@ -25,6 +34,7 @@
   display: block;
 }
 
+/* Hover effects */
 .nav-items li a:hover,
 .nav-items li span:hover {
   background-color: #f1ee21;
@@ -37,23 +47,23 @@
 .dropdown-content {
   display: none; /* Hidden by default */
   position: absolute;
-  background-color:blue;
+  background-color: blue;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
   top: 100%; /* Ensure the dropdown appears below the parent */
   left: 0;
-  padding: 10px;
+  padding: 20px;
   min-width: 160px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-/* Show the dropdown when the state is active */
+/* Show the dropdown when active */
 .dropdown-content.show {
   display: block;
 }
 
-/* Styling for dropdown links */
+/* Dropdown link styling */
 .dropdown-content li {
   list-style: none;
 }
