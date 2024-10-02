@@ -13,37 +13,41 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const closeDropdown = () => {
+    setOpenDropdown(null); // Close the dropdown
+  };
+
   return (
     <nav className="navbar">
       <ul className="nav-items">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={closeDropdown}>Home</Link>
         </li>
 
         <li className="dropdown">
           <span onClick={() => handleDropdownToggle('about')}>About</span>
           <ul className={`dropdown-content ${openDropdown === 'about' ? 'show' : ''}`}>
-            <li><Link to="/about/ceo-message">Message from C.E.O</Link></li>
-            <li><Link to="/about/founder-message">Message from Founder</Link></li>
+            <li><Link to="/about/ceo-message" onClick={closeDropdown}>Message from C.E.O</Link></li>
+            <li><Link to="/about/founder-message" onClick={closeDropdown}>Message from Founder</Link></li>
           </ul>
         </li>
 
-        <li><Link to="/mission">Mission</Link></li>
-        <li><Link to="/vision">Vision</Link></li>
-        <li><Link to="/admission">Admission</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/mission" onClick={closeDropdown}>Mission</Link></li>
+        <li><Link to="/vision" onClick={closeDropdown}>Vision</Link></li>
+        <li><Link to="/admission" onClick={closeDropdown}>Admission</Link></li>
+        <li><Link to="/contact" onClick={closeDropdown}>Contact</Link></li>
 
         <li className="dropdown">
           <span onClick={() => handleDropdownToggle('programs')}>Programs</span>
           <ul className={`dropdown-content ${openDropdown === 'programs' ? 'show' : ''}`}>
-            <li><Link to="/programs/course1">Course 1</Link></li>
-            <li><Link to="/programs/course2">Course 2</Link></li>
-            <li><Link to="/programs/course3">Course 3</Link></li>
-            <li><Link to="/programs/course4">Course 4</Link></li>
-            <li><Link to="/programs/course5">Course 5</Link></li>
-            <li><Link to="/programs/course6">Course 6</Link></li>
-            <li><Link to="/programs/course7">Course 7</Link></li>
-            <li><Link to="/programs/course8">Course 8</Link></li>
+            <li><Link to="/programs/course1" onClick={closeDropdown}>Course 1</Link></li>
+            <li><Link to="/programs/course2" onClick={closeDropdown}>Course 2</Link></li>
+            <li><Link to="/programs/course3" onClick={closeDropdown}>Course 3</Link></li>
+            <li><Link to="/programs/course4" onClick={closeDropdown}>Course 4</Link></li>
+            <li><Link to="/programs/course5" onClick={closeDropdown}>Course 5</Link></li>
+            <li><Link to="/programs/course6" onClick={closeDropdown}>Course 6</Link></li>
+            <li><Link to="/programs/course7" onClick={closeDropdown}>Course 7</Link></li>
+            <li><Link to="/programs/course8" onClick={closeDropdown}>Course 8</Link></li>
           </ul>
         </li>
       </ul>
