@@ -1,62 +1,70 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLoader } from '../context/LoaderContext';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setIsLoading } = useLoader();
+  const navigate = useNavigate();
 
   const handleDropdownToggle = (dropdown: string) => {
     if (openDropdown === dropdown) {
-      setOpenDropdown(null); // Close if already open
+      setOpenDropdown(null);
     } else {
-      setOpenDropdown(dropdown); // Open the clicked dropdown
+      setOpenDropdown(dropdown);
     }
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle mobile menu
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavigation = (path: string) => {
+    setIsLoading(true);
+    navigate(path);
+    closeDropdown();
   };
 
   const closeDropdown = () => {
-    setOpenDropdown(null); // Close dropdown
-    setIsMenuOpen(false); // Close mobile menu
+    setOpenDropdown(null);
+    setIsMenuOpen(false);
   };
 
   return (
     <nav className="navbar">
       <span className="hamburger" onClick={toggleMenu}>
-        {isMenuOpen ? 'X' : '☰'} {/* Toggle between hamburger and 'X' icon */}
+        {isMenuOpen ? 'X' : '☰'}
       </span>
       <ul className={`nav-items ${isMenuOpen ? 'show' : ''}`}>
         <li>
-          <Link to="/" onClick={closeDropdown}>Home</Link>
+          <Link to="/" onClick={() => handleNavigation('/')}>Home</Link>
         </li>
 
         <li className="dropdown">
           <span onClick={() => handleDropdownToggle('about')}>About</span>
           <ul className={`dropdown-content ${openDropdown === 'about' ? 'show' : ''}`}>
-            <li><Link to="/about/ceo-message" onClick={closeDropdown}>Message from C.E.O</Link></li>
-            <li><Link to="/about/founder-message" onClick={closeDropdown}>Message from Founder</Link></li>
+            <li><Link to="/about/ceo-message" onClick={() => handleNavigation('/about/ceo-message')}>Message from C.E.O</Link></li>
+            <li><Link to="/about/founder-message" onClick={() => handleNavigation('/about/founder-message')}>Message from Founder</Link></li>
           </ul>
         </li>
 
-        <li><Link to="/mission" onClick={closeDropdown}>Mission</Link></li>
-        <li><Link to="/vision" onClick={closeDropdown}>Vision</Link></li>
-        <li><Link to="/admission" onClick={closeDropdown}>Admission</Link></li>
-        <li><Link to="/contact" onClick={closeDropdown}>Contact</Link></li>
+        <li><Link to="/mission" onClick={() => handleNavigation('/mission')}>Mission</Link></li>
+        <li><Link to="/vision" onClick={() => handleNavigation('/vision')}>Vision</Link></li>
+        <li><Link to="/admission" onClick={() => handleNavigation('/admission')}>Admission</Link></li>
+        <li><Link to="/contact" onClick={() => handleNavigation('/contact')}>Contact</Link></li>
 
         <li className="dropdown">
           <span onClick={() => handleDropdownToggle('programs')}>Programs</span>
           <ul className={`dropdown-content ${openDropdown === 'programs' ? 'show' : ''}`}>
-            <li><Link to="/programs/course1" onClick={closeDropdown}>Course 1</Link></li>
-            <li><Link to="/programs/course2" onClick={closeDropdown}>Course 2</Link></li>
-            <li><Link to="/programs/course3" onClick={closeDropdown}>Course 3</Link></li>
-            <li><Link to="/programs/course4" onClick={closeDropdown}>Course 4</Link></li>
-            <li><Link to="/programs/course5" onClick={closeDropdown}>Course 5</Link></li>
-            <li><Link to="/programs/course6" onClick={closeDropdown}>Course 6</Link></li>
-            <li><Link to="/programs/course7" onClick={closeDropdown}>Course 7</Link></li>
-            <li><Link to="/programs/course8" onClick={closeDropdown}>Course 8</Link></li>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              <li key={num}>
+                <Link to={`/programs/course${num}`} onClick={() => handleNavigation(`/programs/course${num}`)}>
+                  Course {num}
+                </Link>
+              </li>
+            ))}
           </ul>
         </li>
       </ul>
