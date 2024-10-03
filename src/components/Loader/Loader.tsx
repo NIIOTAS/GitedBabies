@@ -8,17 +8,13 @@ import './Loader.css';
 // Placeholder components - replace these with your Bitmoji images
 const BoyBitmojiComponent = () => (
   <div className="bitmoji-placeholder">
-    {/* Add your boy Bitmoji image here */}
-    <img src="/src/assets/boybitmoji.jpg" alt="Boy Bitmoji" />
-
+    <img src="/boybitmoji.jpg" alt="Boy Bitmoji" />
   </div>
 );
 
 const GirlBitmojiComponent = () => (
   <div className="bitmoji-placeholder">
-    {/* Add your girl Bitmoji image here */}
-    
-    <img src="/src/assets/Girlbitmoji.jpg" alt="Girl Bitmoji" />
+    <img src="/Girlbitmoji.jpg" alt="Girl Bitmoji" />
   </div>
 );
 
