@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Loader.css';
-import boyBitmoji from '../../assets/boybitmoji.jpg';
-import GirlBitmoji from '../../assets/Girlbitmoji.jpg';
+import boyBitmoji from '@assets/boybitmoji.jpg';
+import GirlBitmoji from '@assets/Girlbitmoji.jpg';
+
 
 
 
