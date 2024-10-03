@@ -24,9 +24,9 @@ const Footer: React.FC<FooterProps> = ({ toggleTheme, theme }) => {
         </nav>
 
         <p>&copy; {currentYear} | Contact us on: 
-          <a href="tel:+233540918937">0540918937</a>
+          <a href="tel:+233558536540">0558536540</a>
         </p>
-        <p className="powered-by">Powered by GiftedBabies</p>
+        <p className="powered-by">Powered by Test-GiftedBabies</p>
 
         {/* Theme Switcher Button */}
         <button onClick={toggleTheme} className="theme-switcher">

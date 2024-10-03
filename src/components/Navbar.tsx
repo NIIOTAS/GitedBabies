@@ -23,9 +23,15 @@ const Navbar: React.FC = () => {
 
   const handleNavigation = (path: string) => {
     setIsLoading(true);
-    navigate(path);
-    closeDropdown();
+    
+    if (window.location.pathname !== path) { // Only close dropdown when navigating to a different page
+      navigate(path);
+      setTimeout(closeDropdown, 500);
+    } else {
+      closeDropdown(); // Close dropdown if you're on the same page (like Home)
+    }
   };
+  
 
   const closeDropdown = () => {
     setOpenDropdown(null);

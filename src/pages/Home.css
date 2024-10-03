@@ -1,89 +1,159 @@
+
+/* Main container styling - centered content */
 .home-container {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  }
-  
-  .background-bubbles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .bubble {
-    position: absolute;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center; /* Center vertically */
+  align-items: center;     /* Center horizontally */
+  padding: 2rem;
+  text-align: center;      /* Ensure the text is centered */
+}
+
+/* Background bubbles */
+.background-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  width: var(--size);
+  height: var(--size);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  left: var(--left);
+  animation: rise var(--animDuration) infinite ease-in;
+}
+
+@keyframes rise {
+  0% {
     bottom: -150px;
-    width: var(--size);
-    height: var(--size);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    left: var(--left);
-    animation: rise var(--animDuration) infinite ease-in;
+    transform: translateX(0);
   }
-  
-  @keyframes rise {
-    0% {
-      bottom: -150px;
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(100px);
-    }
-    100% {
-      bottom: 100vh;
-      transform: translateX(-200px);
-    }
+  50% {
+    transform: translateX(100px);
   }
-  
-  .mouse-doughnut {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #3498db;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: all 0.1s ease;
+  100% {
+    bottom: 100vh;
+    transform: translateX(-200px);
   }
-  
-  .content {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    color: #333;
-    text-align: center;
+}
+
+/* Mouse doughnut for effect */
+.mouse-doughnut {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: all 0.1s ease;
+}
+
+/* Content styling */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  color: #333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Button styles */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.view-more {
+  background-color: #3498db;
+  color: white;
+}
+
+.request-service {
+  background-color: white;
+  color: #3498db;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive design */
+
+/* For medium screens like tablets */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem;
   }
-  
+
+  p {
+    font-size: 1.1rem;
+  }
+
   .buttons {
-    margin-top: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  
+
   button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 100%;
+  }
+}
+
+/* For small screens like phones */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
     font-size: 1rem;
-    transition: background-color 0.3s ease;
   }
-  
-  .view-more {
-    background-color: #3498db;
-    color: white;
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
   }
-  
-  .request-service {
-    background-color: white;
-    color: #3498db;
+
+  .buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
-  
-  button:hover {
-    opacity: 0.9;
-  }
+}
