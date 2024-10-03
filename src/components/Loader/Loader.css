@@ -22,8 +22,8 @@
 }
 
 .bitmoji-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,8 @@
 
 /* When you add your Bitmoji images, you can use these classes to style them */
 .bitmoji-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 50%;
+  height: 50%;
+  object-fit: scale-down;
+  border-radius: 50%;
 }

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Loader.css';
+import BoyBitmojiImage from '../../assets/Boybitmoji.jpg';
+import GirlBitmojiImage from '../../assets/Girlbitmoji.jpg';
 
 // Placeholder components - replace these with your Bitmoji images
-const BoyBitmoji = () => (
+const BoyBitmojiComponent = () => (
   <div className="bitmoji-placeholder">
     {/* Add your boy Bitmoji image here */}
-    Boy Bitmoji
+    <img src={BoyBitmojiImage} alt='Boy Bitmoji'/>
   </div>
 );
 
 const GirlBitmoji = () => (
   <div className="bitmoji-placeholder">
     {/* Add your girl Bitmoji image here */}
-    Girl Bitmoji
+    
+    <img src={GirlBitmojiImage} alt='Girl Bitmoji'/>
   </div>
 );
 
@@ -49,7 +52,7 @@ const Loader: React.FC = () => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.5 }}
           >
-            {currentBitmoji === 'boy' ? <BoyBitmoji /> : <GirlBitmoji />}
+            {currentBitmoji === 'boy' ? <BoyBitmojiComponent /> : <GirlBitmoji />}
           </motion.div>
         </AnimatePresence>
       </motion.div>
