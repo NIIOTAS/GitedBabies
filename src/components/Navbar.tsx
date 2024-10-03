@@ -4,6 +4,7 @@ import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
 
   const handleDropdownToggle = (dropdown: string) => {
     if (openDropdown === dropdown) {
@@ -13,13 +14,21 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Toggle mobile menu
+  };
+
   const closeDropdown = () => {
-    setOpenDropdown(null); // Close the dropdown
+    setOpenDropdown(null); // Close dropdown
+    setIsMenuOpen(false); // Close mobile menu
   };
 
   return (
     <nav className="navbar">
-      <ul className="nav-items">
+      <span className="hamburger" onClick={toggleMenu}>
+        {isMenuOpen ? 'X' : '☰'} {/* Toggle between hamburger and 'X' icon */}
+      </span>
+      <ul className={`nav-items ${isMenuOpen ? 'show' : ''}`}>
         <li>
           <Link to="/" onClick={closeDropdown}>Home</Link>
         </li>

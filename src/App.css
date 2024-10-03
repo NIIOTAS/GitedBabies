@@ -6,4 +6,30 @@
     
   }
   
-  
+/* Default (Gold theme) */
+body[data-theme='gold'] {
+  --background-color: #FFD700; /* Gold */
+  --text-color: black;
+  --link-color: darkblue;
+}
+
+/* Sea-blue theme */
+body[data-theme='sea-blue'] {
+  --background-color: #0077be; /* Sea-blue */
+  --text-color: white;
+  --link-color: #FFD700; /* Gold links */
+}
+
+.App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+footer {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

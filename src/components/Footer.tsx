@@ -1,62 +1,40 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
-// Get the current year dynamically
+interface FooterProps {
+  toggleTheme: () => void;
+  theme: 'gold' | 'sea-blue';
+}
+
 const currentYear = new Date().getFullYear();
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ toggleTheme, theme }) => {
   return (
-    <footer style={footerStyles}>
-      <div style={contentStyles}>
-        <p style={textStyles}>&copy; {currentYear} | contact us on: 
-          <a 
-            href="tel:+233540918937" //subject to change Using c.e.o's phone number
-            style={phoneLinkStyles}
-          >
-            0540918937
-          </a>
+    <footer>
+      <div className="content">
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/mission">Mission</Link></li>
+            <li><Link to="/vision">Vision</Link></li>
+            <li><Link to="/admission">Admission</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </nav>
+
+        <p>&copy; {currentYear} | Contact us on: 
+          <a href="tel:+233540918937">0540918937</a>
         </p>
-        <p style={poweredByStyles}>Powered by GiftedBabies</p>
+        <p className="powered-by">Powered by GiftedBabies</p>
+
+        {/* Theme Switcher Button */}
+        <button onClick={toggleTheme} className="theme-switcher">
+          {theme === 'gold' ? '🌞' : '🌊'}
+        </button>
       </div>
     </footer>
   );
-};
-
-// Styles
-const footerStyles: React.CSSProperties = {
-    backgroundColor: 'blue',
-    color: 'white',
-    textAlign: 'center',
-    position: 'relative',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    padding: '10px 0',
-    boxSizing: 'border-box',
-    boxShadow: '0 4px 8px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3)', 
-    marginTop: 'auto',
-  };
-
-const contentStyles: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column', // Change to column to stack the text
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '5px',
-};
-
-const textStyles: React.CSSProperties = {
-  margin: 0,
-};
-
-const poweredByStyles: React.CSSProperties = {
-  fontSize: '14px',  // Slightly smaller font for the powered by statement
-  color: 'lightgray',
-};
-
-const phoneLinkStyles: React.CSSProperties = {
-  marginLeft: '10px',
-  color: 'white',
-  textDecoration: 'none',
 };
 
 export default Footer;

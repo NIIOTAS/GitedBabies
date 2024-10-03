@@ -1,0 +1,70 @@
+/* Default theme (Gold) */
+body[data-theme='gold'] {
+    --background-color: #FFD700; /* Gold */
+    --text-color: black;
+    --link-color: darkblue;
+}
+  
+/* Sea-blue theme */
+body[data-theme='sea-blue'] {
+    --background-color: #0077be; /* Sea-blue */
+    --text-color: white;
+    --link-color: #FFD700; /* Gold links */
+}
+
+footer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 500; /* Lower z-index to ensure navbar appears above */
+}
+
+footer .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+footer nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+footer nav ul li {
+    display: inline;
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+footer .theme-switcher {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Responsive Footer for smaller screens */
+@media (max-width: 768px) {
+    footer nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -80,3 +80,51 @@
   background-color: #f9d73d;
   border-radius: 5px;
 }
+
+/* Hide hamburger icon on larger screens */
+.hamburger {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    left: 20px; /* Move hamburger icon to the left */
+    top: 10px;  /* Push the hamburger icon up */
+    font-size: 24px; /* Adjust size if needed */
+    cursor: pointer;
+    color: white;
+  }
+
+  /* Navbar initially hidden off-screen at the bottom */
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    bottom: 0; /* Start at the bottom of the screen */
+    left: 0;
+    background-color: #30aafb;
+    transform: translateY(100%); /* Hide the menu off the screen */
+    transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+    z-index: 1000; /* Make sure it lies on top of footer and other content */
+  }
+
+  /* Show the nav-items by moving them to visible position */
+  .nav-items.show {
+    transform: translateY(0); /* Slide up to the top */
+  }
+
+  .nav-items li {
+    text-align: center;
+  }
+
+  /* Dropdown on mobile should be fully visible when opened */
+  .dropdown-content {
+    position: relative;
+    background-color: #30aafb;
+    width: 100%;
+  }
+}

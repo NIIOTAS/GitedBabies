@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';  // Assuming Navbar is in the components folder
 import Home from './pages/Home.tsx';
@@ -16,31 +16,43 @@ import Course6 from './pages/programs/Course6';
 import Course7 from './pages/programs/Course7';
 import Course8 from './pages/programs/Course8';
 import AboutCeoMessage from './pages/about/AboutCeoMessage.tsx';
-import "./App.css";
+import './App.css';
+import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState<'gold' | 'sea-blue'>('gold'); // Default theme
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'gold' ? 'sea-blue' : 'gold'));
+    document.body.setAttribute('data-theme', theme === 'gold' ? 'sea-blue' : 'gold'); // Apply theme globally
+  };
+
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about/ceo-message" element={<AboutCeoMessage />} />
-        <Route path="/about/founder-message" element={<AboutFounderMessage />} />
-        <Route path="/mission" element={<Mission />} />
-        <Route path="/vision" element={<Vision />} />
-        <Route path="/admission" element={<Admission />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/programs/course1" element={<Course1 />} />
-        <Route path="/programs/course2" element={<Course2 />} />
-        <Route path="/programs/course3" element={<Course3 />} />
-        <Route path="/programs/course4" element={<Course4 />} />
-        <Route path="/programs/course5" element={<Course5 />} />
-        <Route path="/programs/course6" element={<Course6 />} />
-        <Route path="/programs/course7" element={<Course7 />} />
-        <Route path="/programs/course8" element={<Course8 />} />
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about/ceo-message" element={<AboutCeoMessage />} />
+          <Route path="/about/founder-message" element={<AboutFounderMessage />} />
+          <Route path="/mission" element={<Mission />} />
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/admission" element={<Admission />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/programs/course1" element={<Course1 />} />
+          <Route path="/programs/course2" element={<Course2 />} />
+          <Route path="/programs/course3" element={<Course3 />} />
+          <Route path="/programs/course4" element={<Course4 />} />
+          <Route path="/programs/course5" element={<Course5 />} />
+          <Route path="/programs/course6" element={<Course6 />} />
+          <Route path="/programs/course7" element={<Course7 />} />
+          <Route path="/programs/course8" element={<Course8 />} />
+          {/* Add routes for the rest of the courses similarly */}
+        </Routes>
 
-        {/* Add routes for the rest of the courses similarly */}
-      </Routes>
+        {/* Pass theme and toggleTheme to Footer */}
+        <Footer toggleTheme={toggleTheme} theme={theme} />
+      </div>
     </Router>
   );
 };
