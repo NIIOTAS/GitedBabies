@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Loader.css';
-import GirlBitmoji from '../../assets/Girlbitmoji.jpg';
+
 
 
 
@@ -18,7 +18,7 @@ const GirlBitmojiComponent = () => (
   <div className="bitmoji-placeholder">
     {/* Add your girl Bitmoji image here */}
     
-    <img src={GirlBitmoji} alt='Girl Bitmoji'/>
+    <img src="/src/assets/Girlbitmoji.jpg" alt="Girl Bitmoji" />
   </div>
 );
 
